@@ -1,5 +1,3 @@
-using Newtonsoft.Json.Bson;
-using System.ComponentModel;
 using System.Net;
 using System.Net.Http.Headers;
 
@@ -9,7 +7,7 @@ namespace Cheerful.Test
     public class RequstApiTest
     {
         [TestMethod("Post 请求")]
-        public async Task TestMethod1()
+        public async Task PostAsyncTest()
         {
             var webClient = new WebClient();
             byte[] Bytes = webClient.DownloadData("http://47.100.94.46:2023/api/file/preview?fileName=09f387ad-26fa-45ee-8860-11866f664e1f.jpg&applictionName=Property");
@@ -79,20 +77,16 @@ namespace Cheerful.Test
 
                 },
             };
-             await RequstApi.PostAsync(request);
+            await RequstApi.PostAsync(request);
         }
 
         [TestMethod("网络资源转Byte[]")]
-        public void TestMethod2()
-        {
+        public void DownloadToByteTest()
+         => RequstApi.DownloadToByte("http://47.100.94.46:2023/api/file/preview?fileName=09f387ad-26fa-45ee-8860-11866f664e1f.jpg&applictionName=Property");
 
-            var result = RequstApi.DownloadToByte("http://47.100.94.46:2023/api/file/preview?fileName=09f387ad-26fa-45ee-8860-11866f664e1f.jpg&applictionName=Property");
-        }
 
         [TestMethod("网络资源转Stream")]
-        public void TestMethod3()
-        {
-            RequstApi.DownloadToStream("http://47.100.94.46:2023/api/file/preview?fileName=09f387ad-26fa-45ee-8860-11866f664e1f.jpg&applictionName=Property");
-        }
+        public void DownloadToStreamTest()
+        => RequstApi.DownloadToStream("http://47.100.94.46:2023/api/file/preview?fileName=09f387ad-26fa-45ee-8860-11866f664e1f.jpg&applictionName=Property");
     }
 }
