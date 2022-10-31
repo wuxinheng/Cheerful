@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Happy\Happy.csproj" />
+    <ProjectReference Include="..\Cheerful\Cheerful.csproj" />
   </ItemGroup>
 
 </Project>

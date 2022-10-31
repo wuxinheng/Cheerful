@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Net;
 using System.Net.Http.Headers;
 
-namespace Happy.Test
+namespace Cheerful.Test
 {
     [TestClass]
     public class RequstApiTest
