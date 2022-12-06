@@ -34,6 +34,18 @@
         }
 
         [TestMethod()]
+        public void NextDecimalTest()
+        {
+            Assert.IsTrue(Random.Shared.NextDecimal(1, 10) is decimal result);
+        }
+
+        [TestMethod()]
+        public void NextFloatTest()
+        {
+            Assert.IsTrue(Random.Shared.NextFloat(1, 10) is float result);
+        }
+
+        [TestMethod()]
         public void NextMajusculeTest()
         {
             var majusculeValue = Random.Shared.NextMajuscule();
@@ -62,6 +74,18 @@
         }
 
         [TestMethod()]
+        public void NextSbyteTest()
+        {
+            Assert.IsTrue(Random.Shared.NextSbyte() is sbyte result);
+        }
+
+        [TestMethod()]
+        public void NextShortTest()
+        {
+            Assert.IsTrue(Random.Shared.NextShort() is short result);
+        }
+
+        [TestMethod()]
         public void NextStringTest()
         {
             var stringValue = Random.Shared.NextString();
@@ -72,6 +96,23 @@
         public void NextStringTest1()
         {
             Assert.IsTrue(Random.Shared.NextString(10).Length == 10);
+        }
+        [TestMethod()]
+        public void NextUIntTest()
+        {
+            Assert.IsTrue(Random.Shared.NextUInt() is uint result);
+        }
+
+        [TestMethod()]
+        public void NextULongTest()
+        {
+            Assert.IsTrue(Random.Shared.NextULong() is ulong result);
+        }
+
+        [TestMethod()]
+        public void NextUShortTest()
+        {
+            Assert.IsTrue(Random.Shared.NextUShort() is ushort result);
         }
     }
 }

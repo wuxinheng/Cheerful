@@ -1,21 +1,44 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Cheerful.Test
+﻿namespace Cheerful.Test
 {
-
-
     [TestClass]
     public class InitializedTest
     {
-        private delegate string @Delegate();
+        [TestMethod("泛型类-随机初始化所有类型属性")]
+        public void InitTest()
+        {
+            var reuslt = Cheerful.Initialized.Init<HelpTestClass.TestClass1>();
+            Assert.IsNotNull(reuslt);
+            Assert.IsTrue(reuslt.Bool || !reuslt.Bool);
+            Assert.IsTrue(reuslt.Byte.GetHashCode() > 0);
+            Assert.IsTrue(reuslt.Decimal != default);
+            Assert.IsTrue(reuslt.Float.GetHashCode() > 0);
+            Assert.IsTrue(reuslt?.String?.Length > 0);
+            Assert.IsTrue(reuslt.Double != default);
+            Assert.IsTrue(reuslt.Int != default);
+            Assert.IsTrue(reuslt.Long != default);
+            Assert.IsTrue(reuslt.Sbyte != default);
+            Assert.IsTrue(reuslt.Short != default);
+            Assert.IsTrue(reuslt.Uint != default);
+            Assert.IsTrue(reuslt.Ulong != default);
+            Assert.IsTrue(reuslt.Ushort != default);
+        }
+
+        [TestMethod()]
+        public void InitCollectionTest()
+        {
+            var reuslt = Cheerful.Initialized.InitCollection<HelpTestClass.TestClass1>(10);
+            Assert.IsTrue(reuslt.Any());
+        }
+    }
+
+    #region HelpTestClass
+
+    public class HelpTestClass
+    {
+        public delegate string @Delegate();
 
         [Flags]
-        private enum Days
+        public enum Days
         {
             None = 0b_0000_0000,  // 0
             Monday = 0b_0000_0001,  // 1
@@ -28,7 +51,7 @@ namespace Cheerful.Test
             Weekend = Saturday | Sunday
         }
 
-        private enum ErrorCode : ushort
+        public enum ErrorCode : ushort
         {
             None = 0,
             Unknown = 1,
@@ -36,18 +59,12 @@ namespace Cheerful.Test
             OutlierReading = 200
         }
 
-        private interface IDog
+        public interface IDog
         {
-            string Name { get; set; }
+            string? Name { get; set; }
         }
 
-        [TestMethod("泛型类-随机初始化所有类型属性")]
-        public void Initialized()
-        {
-            var reuslt = Cheerful.Initialized.Init<TestClass1>();
-        }
-
-        private readonly struct Coords
+        public readonly struct Coords
         {
             public Coords(double x, double y)
             {
@@ -61,7 +78,7 @@ namespace Cheerful.Test
             public override string ToString() => $"({X}, {Y})";
         }
 
-        private struct Coords1
+        public struct Coords1
         {
             public Coords1(double x, double y)
             {
@@ -75,12 +92,12 @@ namespace Cheerful.Test
             public override string ToString() => $"({X}, {Y})";
         }
 
-        private class Dog : IDog
+        public class Dog : IDog
         {
-            public string Name { get; set; }
+            public string? Name { get; set; }
         }
 
-        private class TestClass1
+        public class TestClass1
         {
             public @Delegate? @Delegate { get; set; }
             public double[]? Array { get; set; }
@@ -112,12 +129,13 @@ namespace Cheerful.Test
             public ulong Ulong { get; set; }
             public ushort Ushort { get; set; }
         }
-        private record Person
+
+        public record Person
         {
             public string FirstName { get; init; } = default!;
             public string LastName { get; init; } = default!;
         };
     }
 
-
+    #endregion HelpTestClass
 }
