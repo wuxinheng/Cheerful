@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -10,48 +11,72 @@ namespace Cheerful
     public static class Initialized
     {
 
-        public static T Init<T>()
-            where T : class, new()
+        public static T Init<T>() where T : class, new()
         {
-            Random random = new Random();
+
             var type = typeof(T);
             var @object = System.Activator.CreateInstance<T>();
-            dynamic randomValue = random.Next(0, 1);
-            foreach (var item in type.GetProperties())
+            var propertyInfos = type.GetProperties();
+
+            foreach (var item in propertyInfos)
             {
                 if (item.PropertyType.IsSubclassOf(typeof(Delegate)))
                 {
-                    item.SetValue(@object, default);
+                    item.SetValue(@object, default);  // 暂不处理
                 }
                 else if (item.PropertyType.IsArray)
                 {
-                    item.SetValue(@object, default);
+                    item.SetValue(@object, default);  // 暂不处理
                 }
                 else if (item.PropertyType == typeof(bool))
-                {
-                    randomValue = random.Next(0, 1);
-                    item.SetValue(@object, Convert.ToBoolean(randomValue));
-                }
+                    item.SetValue(@object, Random.Shared.NextBoolean());
                 else if (item.PropertyType == typeof(byte))
-                {
-                    randomValue = random.Next(0, 255);
-                    item.SetValue(@object, (byte)randomValue);
-                }
+                    item.SetValue(@object, Random.Shared.NextByte());
                 else if (item.PropertyType == typeof(char))
+                    item.SetValue(@object, Random.Shared.NextChar());
+                else if (item.PropertyType == typeof(decimal))
+                    item.SetValue(@object, Random.Shared.NextDecimal(1, 100));
+                else if (item.PropertyType == typeof(float))
+                    item.SetValue(@object, Random.Shared.NextFloat(1, 100));
+                else if (item.PropertyType == typeof(string))
+                    item.SetValue(@object, Random.Shared.NextString());
+                else if (item.PropertyType == typeof(double))
+                    item.SetValue(@object, Random.Shared.NextDouble());
+                else if (item.PropertyType == typeof(int))
+                    item.SetValue(@object, Random.Shared.Next());
+                else if (item.PropertyType == typeof(long))
+                    item.SetValue(@object, Random.Shared.Next());
+                else if (item.PropertyType == typeof(nint))
+                    item.SetValue(@object, default);
+                else if (item.PropertyType == typeof(nuint))
+                    item.SetValue(@object, default);
+                else if (item.PropertyType == typeof(sbyte))
+                    item.SetValue(@object, Random.Shared.NextSbyte());
+                else if (item.PropertyType == typeof(short))
+                    item.SetValue(@object, Random.Shared.NextShort());
+                else if (item.PropertyType == typeof(uint))
+                    item.SetValue(@object, default);
+                else if (item.PropertyType == typeof(ulong))
+                    item.SetValue(@object, default);
+                else if (item.PropertyType == typeof(ushort))
+                    item.SetValue(@object, default);
+                else if (!item.PropertyType.IsValueType)
                 {
-                    item.SetValue(@object, (byte)randomValue);
+                    item.SetValue(@object, default);
                 }
                 else
                 {
                     item.SetValue(@object, null);
                 }
             }
-            return new T();
+            return @object;
         }
 
         public static IEnumerable<T> InitCollection<T>()
         {
             return new List<T>();
         }
+
+
     }
 }
