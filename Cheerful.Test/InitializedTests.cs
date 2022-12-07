@@ -1,7 +1,7 @@
 ﻿namespace Cheerful.Test
 {
     [TestClass]
-    public class InitializedTest
+    public class InitializedTests
     {
         [TestMethod()]
         public void InitTest()
