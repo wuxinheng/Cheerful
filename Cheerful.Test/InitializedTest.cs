@@ -3,7 +3,7 @@
     [TestClass]
     public class InitializedTest
     {
-        [TestMethod("泛型类-随机初始化所有类型属性")]
+        [TestMethod()]
         public void InitTest()
         {
             var reuslt = Cheerful.Initialized.Init<HelpTestClass.TestClass1>();
@@ -26,7 +26,7 @@
         [TestMethod()]
         public void InitCollectionTest()
         {
-            var reuslt = Cheerful.Initialized.InitCollection<HelpTestClass.TestClass1>(10);
+            var reuslt = Cheerful.Initialized.InitCollection<HelpTestClass.TestClass1>(100000);
             Assert.IsTrue(reuslt.Any());
         }
     }
