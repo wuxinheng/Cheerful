@@ -2,13 +2,17 @@
 
 namespace Cheerful.Test
 {
-    [TestClass()]
+    [TestClass]
     public class PipeLineTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void PipeLineTest()
         {
-            TestContext context = new TestContext();
+            var context = new TestContext()
+            {
+                A = 0,
+                R = 10
+            };
             var pipeLine = new PipeLine<TestContext>();
             pipeLine.Add<TestPipeLineService1>();
             pipeLine.Add<TestPipeLineService1>();
@@ -26,8 +30,8 @@ namespace Cheerful.Test
     #region HelpTestClass
     public class TestContext
     {
-        public int A { get; set; } = 0;
-        public int R { get; set; } = 10;
+        public int A { get; set; }
+        public int R { get; set; }
     }
 
     public class TestPipeLineService1 : PipeLineService<TestContext>

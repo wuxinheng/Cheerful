@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace Cheerful
 {
@@ -144,7 +145,8 @@ namespace Cheerful
             var result = new StringBuilder();
             for (int i = 0; i < 10; i++)
             {
-                switch (Shared.Next(3))
+                var random = Shared.Next(3);
+                switch (random)
                 {
                     case 0:
                         result.Append(Shared.NextNumber());//小写
@@ -157,6 +159,8 @@ namespace Cheerful
                     case 2:
                         result.Append(Shared.NextMinuscule());//小写
                         break;
+                    default:
+                        throw new InvalidOperationException($"Unexpected value random = {random}");
                 }
             }
 
@@ -173,7 +177,8 @@ namespace Cheerful
             var result = new StringBuilder();
             for (int i = 0; i < length; i++)
             {
-                switch (Shared.Next(3))
+                var random = Shared.Next(3);
+                switch (random)
                 {
                     case 0:
                         result.Append(Shared.NextNumber());//小写
@@ -186,6 +191,8 @@ namespace Cheerful
                     case 2:
                         result.Append(Shared.NextMinuscule());//小写
                         break;
+                    default:
+                        throw new InvalidOperationException($"Unexpected value random = {random}");
                 }
             }
 
