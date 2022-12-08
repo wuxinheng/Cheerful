@@ -19,12 +19,13 @@ jobs:
         run: |
           dotnet build
           dotnet test --collect:"XPlat Code Coverage"
-          find ./TestResults -name "*coverage*.xml" -type f -exec cp {} ./ \;
-      - name: Codacy Coverage Reporter
-        uses: codacy/codacy-coverage-reporter-action@v1.3.0
-        with:
-          api-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: 'coverage.xml'
+          ls
+
+      # - name: Codacy Coverage Reporter
+      #   uses: codacy/codacy-coverage-reporter-action@v1.3.0
+      #   with:
+      #     api-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+      #     coverage-reports: 'coverage.xml'
   # DotNet:
   #   runs-on: ubuntu-latest
   #   steps:
