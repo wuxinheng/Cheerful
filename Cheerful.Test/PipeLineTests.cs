@@ -23,6 +23,7 @@ namespace Cheerful.Test
         }
     }
 
+    #region HelpTestClass
     public class TestContext
     {
         public int A { get; set; } = 0;
@@ -38,4 +39,5 @@ namespace Cheerful.Test
             t.R--;
         }
     }
+    #endregion
 }
