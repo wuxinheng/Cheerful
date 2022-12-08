@@ -6,7 +6,7 @@
         [TestMethod]
         public void InitTest()
         {
-            var reuslt = Cheerful.Initialized.Init<HelpTestClass.TestClass1>();
+            var reuslt = Initialized.Init<HelpTestClass.TestClass1>();
             Assert.IsNotNull(reuslt);
             Assert.IsTrue(reuslt.Bool || !reuslt.Bool);
             Assert.IsTrue(reuslt.Byte.GetHashCode() > 0);
@@ -23,10 +23,10 @@
             Assert.IsTrue(reuslt.Ushort != default);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void InitCollectionTest()
         {
-            var reuslt = Cheerful.Initialized.InitCollection<HelpTestClass.TestClass1>(100000);
+            var reuslt = Initialized.InitCollection<HelpTestClass.TestClass1>(100000);
             Assert.IsTrue(reuslt.Any());
         }
     }

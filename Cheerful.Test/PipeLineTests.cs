@@ -8,11 +8,7 @@ namespace Cheerful.Test
         [TestMethod]
         public void PipeLineTest()
         {
-            var context = new TestContext()
-            {
-                A = 0,
-                R = 10
-            };
+            var context = new TestContext(0, 10);
             var pipeLine = new PipeLine<TestContext>();
             pipeLine.Add<TestPipeLineService1>();
             pipeLine.Add<TestPipeLineService1>();
@@ -30,6 +26,12 @@ namespace Cheerful.Test
     #region HelpTestClass
     public class TestContext
     {
+        public TestContext(int a, int r)
+        {
+            A = a;
+            R = r;
+        }
+
         public int A { get; set; }
         public int R { get; set; }
     }
