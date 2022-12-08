@@ -18,7 +18,7 @@ jobs:
       - name: Build & Test
         run: |
           dotnet build
-          dotnet test .\Cheerful.Test\Cheerful.Test.csproj --collect:"XPlat Code Coverage"
+          dotnet test Cheerful.Test\Cheerful.Test.csproj --collect:"XPlat Code Coverage"
           ls
           find ./*TestResults* -name "*coverage*.xml" -type f -exec cp {} ./ \;
       - name: Codacy Coverage Reporter
