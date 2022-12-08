@@ -1,8 +1,17 @@
-﻿namespace Cheerful.Test
+﻿using System.Drawing;
+
+namespace Cheerful.Test
 {
     [TestClass]
     public class InitializedTests
     {
+        [TestMethod]
+        public void InitCollectionTest()
+        {
+            var reuslt = Initialized.InitCollection<HelpTestClass.TestClass1>(100000);
+            Assert.IsTrue(reuslt.Any());
+        }
+
         [TestMethod]
         public void InitTest()
         {
@@ -21,13 +30,6 @@
             Assert.IsTrue(reuslt.Uint != default);
             Assert.IsTrue(reuslt.Ulong != default);
             Assert.IsTrue(reuslt.Ushort != default);
-        }
-
-        [TestMethod]
-        public void InitCollectionTest()
-        {
-            var reuslt = Initialized.InitCollection<HelpTestClass.TestClass1>(100000);
-            Assert.IsTrue(reuslt.Any());
         }
     }
 
@@ -77,7 +79,10 @@
 
             public bool Equals(Coords other)
             {
-                throw new NotImplementedException();
+                if (X != other.X)
+                    return false;
+
+                return Y == other.Y;
             }
 
             public override string ToString() => $"({X}, {Y})";
@@ -96,7 +101,10 @@
 
             public bool Equals(Coords1 other)
             {
-                throw new NotImplementedException();
+                if (X != other.X)
+                    return false;
+
+                return Y == other.Y;
             }
 
             public override string ToString() => $"({X}, {Y})";
