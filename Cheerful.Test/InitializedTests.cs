@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace Cheerful.Test
+﻿namespace Cheerful.Test
 {
     [TestClass]
     public class InitializedTests
@@ -65,7 +63,6 @@ namespace Cheerful.Test
         {
             string? Name { get; set; }
         }
-
 
         public class Dog : IDog
         {
