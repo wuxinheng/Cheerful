@@ -21,7 +21,7 @@ jobs:
           cd Cheerful.Test
           dotnet test --collect:"XPlat Code Coverage"
           ls
-          find ./Cheerful.Test/*TestResults* -name "*coverage*.xml" -type f -exec cp {} ./ \;
+          find ./*TestResults* -name "*coverage*.xml" -type f -exec cp {} ./ \;
       - name: Codacy Coverage Reporter
         uses: codacy/codacy-coverage-reporter-action@v1.3.0
         with:
