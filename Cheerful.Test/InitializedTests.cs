@@ -3,7 +3,7 @@
     [TestClass]
     public class InitializedTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void InitTest()
         {
             var reuslt = Cheerful.Initialized.Init<HelpTestClass.TestClass1>();
@@ -64,7 +64,7 @@
             string? Name { get; set; }
         }
 
-        public readonly struct Coords
+        public readonly struct Coords : IEquatable<Coords>
         {
             public Coords(double x, double y)
             {
@@ -75,10 +75,15 @@
             public double X { get; init; }
             public double Y { get; init; }
 
+            public bool Equals(Coords other)
+            {
+                throw new NotImplementedException();
+            }
+
             public override string ToString() => $"({X}, {Y})";
         }
 
-        public struct Coords1
+        public struct Coords1 : IEquatable<Coords1>
         {
             public Coords1(double x, double y)
             {
@@ -88,6 +93,11 @@
 
             public double X { get; }
             public double Y { get; }
+
+            public bool Equals(Coords1 other)
+            {
+                throw new NotImplementedException();
+            }
 
             public override string ToString() => $"({X}, {Y})";
         }
