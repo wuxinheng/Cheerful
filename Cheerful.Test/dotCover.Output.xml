@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root CoveredStatements="354" TotalStatements="381" CoveragePercent="93" ReportType="Xml" DotCoverVersion="2022.3">
+  <Assembly Name="Cheerful" CoveredStatements="207" TotalStatements="212" CoveragePercent="98">
+    <Namespace Name="Cheerful" CoveredStatements="181" TotalStatements="183" CoveragePercent="99">
+      <Type Name="Initialized" CoveredStatements="88" TotalStatements="88" CoveragePercent="100">
+        <Method Name="Init&lt;T&gt;():T" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+        <Method Name="InitCollection&lt;T&gt;(int):IEnumerable&lt;T&gt;" CoveredStatements="14" TotalStatements="14" CoveragePercent="100" />
+        <Method Name="SetPropertyInfo(object,PropertyInfo[]):void" CoveredStatements="67" TotalStatements="67" CoveragePercent="100" />
+      </Type>
+      <Type Name="Random" CoveredStatements="93" TotalStatements="95" CoveragePercent="98">
+        <Constructor Name="Random()" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        <Method Name="NextBoolean():bool" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextByte():byte" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextChar():char" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="NextChinese():string" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="NextChinese(int):string" CoveredStatements="11" TotalStatements="11" CoveragePercent="100" />
+        <Method Name="NextDecimal(Decimal,Decimal):Decimal" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextFloat(float,float):float" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextMajuscule():string" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextMinuscule():string" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextNumber():int" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextNumberString():string" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextSbyte():sbyte" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextShort():short" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextString():string" CoveredStatements="17" TotalStatements="18" CoveragePercent="94" />
+        <Method Name="NextString(int):string" CoveredStatements="17" TotalStatements="18" CoveragePercent="94" />
+        <Method Name="NextUInt():uint" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextULong():ulong" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextUShort():ushort" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+      </Type>
+    </Namespace>
+    <Namespace Name="Cheerful.PipeLine" CoveredStatements="26" TotalStatements="29" CoveragePercent="90">
+      <Type Name="PipeLine&lt;TContext&gt;" CoveredStatements="24" TotalStatements="24" CoveragePercent="100">
+        <AutoProperty Name="Service:IPipeLineService&lt;TContext&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <Method Name="Add&lt;TPipeLineService&gt;():void" CoveredStatements="10" TotalStatements="10" CoveragePercent="100" />
+        <Method Name="Invoke(TContext):void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="SetNextService(IPipeLineService&lt;TContext&gt;,IPipeLineService&lt;TContext&gt;):void" CoveredStatements="9" TotalStatements="9" CoveragePercent="100" />
+      </Type>
+      <Type Name="PipeLineService&lt;TContext&gt;" CoveredStatements="2" TotalStatements="5" CoveragePercent="40">
+        <AutoProperty Name="NextService:IPipeLineService&lt;TContext&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <Method Name="Invoke(TContext):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+      </Type>
+    </Namespace>
+  </Assembly>
+  <Assembly Name="Cheerful.Test" CoveredStatements="147" TotalStatements="169" CoveragePercent="87">
+    <Namespace Name="Cheerful.Test" CoveredStatements="147" TotalStatements="169" CoveragePercent="87">
+      <Type Name="HelpTestClass" CoveredStatements="40" TotalStatements="62" CoveragePercent="65">
+        <Type Name="Dog" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+          <AutoProperty Name="Name:string" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+        </Type>
+        <Type Name="Person" CoveredStatements="0" TotalStatements="6" CoveragePercent="0">
+          <Constructor Name="Person()" CoveredStatements="0" TotalStatements="2" CoveragePercent="0" />
+          <AutoProperty Name="FirstName:string" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertyInitOnlySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+          <AutoProperty Name="LastName:string" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertyInitOnlySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+        </Type>
+        <Type Name="TestClass1" CoveredStatements="40" TotalStatements="54" CoveragePercent="74">
+          <AutoProperty Name="Array:double[]" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Bool:bool" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Byte:byte" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Char:char" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Days:Days" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Decimal:Decimal" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Delegate:Delegate" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Dog:Dog" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Double:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="DoubleNull:Nullable&lt;double&gt;" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Dynamic:object" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="ErrorCode:ErrorCode" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Float:float" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="IDog:IDog" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Int:int" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Long:long" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Nint:IntPtr" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Nuint:UIntPtr" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Object:object" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Person:Person" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Sbyte:sbyte" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Short:short" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="String:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Types:ValueTuple&lt;double,int&gt;" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Uint:uint" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Ulong:ulong" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Ushort:ushort" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+      </Type>
+      <Type Name="InitializedTests" CoveredStatements="21" TotalStatements="21" CoveragePercent="100">
+        <Method Name="InitCollectionTest():void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="InitTest():void" CoveredStatements="17" TotalStatements="17" CoveragePercent="100" />
+      </Type>
+      <Type Name="PipeLineTests" CoveredStatements="13" TotalStatements="13" CoveragePercent="100">
+        <Method Name="PipeLineTest():void" CoveredStatements="13" TotalStatements="13" CoveragePercent="100" />
+      </Type>
+      <Type Name="RandomTests" CoveredStatements="59" TotalStatements="59" CoveragePercent="100">
+        <Method Name="NextBooleanTest():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextByteTest():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextCharTest():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextChineseTest():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextChineseTest1():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextDecimalTest():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextFloatTest():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextMajusculeTest():void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="NextMinusculeTest():void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="NextNumberStringTest():void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="NextNumberTest():void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="NextSbyteTest():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextShortTest():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextStringTest():void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="NextStringTest1():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextUIntTest():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextULongTest():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="NextUShortTest():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+      </Type>
+      <Type Name="TestContext" CoveredStatements="9" TotalStatements="9" CoveragePercent="100">
+        <Constructor Name="TestContext(int,int)" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+        <AutoProperty Name="A:int" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="R:int" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+      </Type>
+      <Type Name="TestPipeLineService1" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
+        <Method Name="Invoke(TestContext):void" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+      </Type>
+    </Namespace>
+  </Assembly>
+</Root>
