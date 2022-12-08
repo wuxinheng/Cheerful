@@ -66,49 +66,6 @@ namespace Cheerful.Test
             string? Name { get; set; }
         }
 
-        public readonly struct Coords : IEquatable<Coords>
-        {
-            public Coords(double x, double y)
-            {
-                X = x;
-                Y = y;
-            }
-
-            public double X { get; init; }
-            public double Y { get; init; }
-
-            public bool Equals(Coords other)
-            {
-                if (X != other.X)
-                    return false;
-
-                return Y == other.Y;
-            }
-
-            public override string ToString() => $"({X}, {Y})";
-        }
-
-        public struct Coords1 : IEquatable<Coords1>
-        {
-            public Coords1(double x, double y)
-            {
-                X = x;
-                Y = y;
-            }
-
-            public double X { get; }
-            public double Y { get; }
-
-            public bool Equals(Coords1 other)
-            {
-                if (X != other.X)
-                    return false;
-
-                return Y == other.Y;
-            }
-
-            public override string ToString() => $"({X}, {Y})";
-        }
 
         public class Dog : IDog
         {
@@ -122,8 +79,6 @@ namespace Cheerful.Test
             public bool Bool { get; set; }
             public byte Byte { get; set; }
             public char Char { get; set; }
-            public Coords Coords { get; set; }
-            public Coords1 Coords1 { get; set; }
             public Days Days { get; set; }
             public decimal Decimal { get; set; }
             public Dog? Dog { get; set; }
