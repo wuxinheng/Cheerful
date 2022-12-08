@@ -18,6 +18,7 @@ jobs:
       - name: Build & Test
         run: |
           dotnet build
+          cd Cheerful.Test
           dotnet test --collect:"XPlat Code Coverage"
           ls
 
