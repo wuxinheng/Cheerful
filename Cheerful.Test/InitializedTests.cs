@@ -1,4 +1,7 @@
-﻿namespace Cheerful.Test
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Cheerful.Test
 {
     [TestClass]
     public class InitializedTests
@@ -9,6 +12,15 @@
             var reuslt = Initialized.InitCollection<HelpTestClass.TestClass1>(100000);
             Assert.IsTrue(reuslt.Any());
         }
+
+        [TestMethod]
+        public void InitEnumTest()
+        {
+            var reuslt = Initialized.Init<InspectionTaskDetail>();
+            //var reuslt = Initialized.Init<HelpTestClass.TestClass2>();
+            Assert.IsNotNull(reuslt);
+        }
+
 
         [TestMethod]
         public void InitTest()
@@ -69,6 +81,12 @@
             public string? Name { get; set; }
         }
 
+        public class TestClass2
+        {
+            public ErrorCode ErrorCode { get; set; }
+            public ErrorCode? ErrorCode1 { get; set; }
+        }
+
         public class TestClass1
         {
             public @Delegate? @Delegate { get; set; }
@@ -107,5 +125,193 @@
         };
     }
 
+
+    #region Entity
+    /// <summary>
+    /// 巡检任务详情
+    /// </summary>
+    public class InspectionTaskDetail
+    {
+        /// <summary>
+        /// 主键Id
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
+        /// 创建人Id
+        /// </summary>
+        public int? Creater { get; set; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime? CreateDate { get; set; }
+
+        /// <summary>
+        /// 修改人Id
+        /// </summary>
+        public int? Updater { get; set; }
+
+        /// <summary>
+        /// 修改时间
+        /// </summary>
+        public DateTime? UpdateDate { get; set; }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        public bool IsDeleted { get; set; } = false;
+        /// <summary>
+        /// 项目Id
+        /// </summary>
+        public int? ProjectId { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int TenantId { get; set; } = -1;
+
+        public string? Remark { get; set; }
+        /// <summary>
+        /// 巡检类型
+        /// </summary>
+        public ProjectDefaultDepartment @Type { get; set; }
+
+        /// <summary>
+        /// 巡检编码
+        /// </summary>
+        public string? Code { get; set; }
+
+        /// <summary>
+        /// 实际巡检人Id
+        /// </summary>
+        public int ActUserId { get; set; }
+
+        /// <summary>
+        /// 实际巡检人姓名
+        /// </summary>
+        public string? ActUserName { get; set; }
+
+        /// <summary>
+        /// 描述
+        /// </summary>
+        public string? Desription { get; set; }
+
+        /// <summary>
+        /// 巡检结果描述
+        /// </summary>
+        public string? InspectionResult { get; set; }
+
+        /// <summary>
+        /// 巡检状态
+        /// </summary>
+        public InspectionStatus InspectionState { get; set; }
+
+        /// <summary>
+        /// 实际巡检时间
+        /// </summary>
+        public DateTime InspectionTime { get; set; }
+
+        /// <summary>
+        /// 序号
+        /// </summary>
+        public int Order { get; set; }
+
+        /// <summary>
+        /// 计划结束时间
+        /// </summary>
+        public DateTime PlanEndTime { get; set; }
+
+        /// <summary>
+        /// 点位ID
+        /// </summary>
+        public int PointId { get; set; }
+
+        /// <summary>
+        /// 点位名称
+        /// </summary>
+        public string? PointName { get; set; }
+
+        /// <summary>
+        /// 计划开始时间
+        /// </summary>
+        public DateTime PlanStartTime { get; set; }
+
+        /// <summary>
+        /// 任务状态（结果）
+        /// </summary>
+        public InspectionResult State { get; set; }
+
+        /// <summary>
+        /// 巡检任务ID
+        /// </summary>
+        public int TaskId { get; set; }
+
+        /// <summary>
+        /// 工单编号
+        /// </summary>
+        public int? RepairId { get; set; }
+
+    }
+
+    /// <summary>
+    /// 项目默认部门
+    /// </summary>
+    public enum ProjectDefaultDepartment
+    {
+        /// <summary>
+        /// 工程部
+        /// </summary>
+        Engineering,
+        /// <summary>
+        /// 安保部
+        /// </summary>
+        Security,
+        /// <summary>
+        /// 保洁部
+        /// </summary>
+        Cleaning,
+        /// <summary>
+        /// 客服部
+        /// </summary>
+        CustomerService
+    }
+    /// <summary>
+    /// 巡检结果
+    /// </summary>
+    public enum InspectionResult
+    {
+        /// <summary>
+        /// 正常
+        /// </summary>
+        Normal,
+        /// <summary>
+        /// 异常
+        /// </summary>
+        Abnormal,
+
+    }
+
+    /// <summary>
+    /// 巡检状态
+    /// </summary>
+    public enum InspectionStatus
+    {
+        /// <summary>
+        /// 待巡检
+        /// </summary>
+        NotStarted,
+        /// <summary>
+        /// 已巡检
+        /// </summary>
+        Finished,
+        /// <summary>
+        /// 漏打卡
+        /// </summary>
+        Forget,
+        /// <summary>
+        /// 已超时
+        /// </summary>
+        TimeOut
+
+    }
+    #endregion
     #endregion HelpTestClass
 }

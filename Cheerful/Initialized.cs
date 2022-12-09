@@ -78,7 +78,8 @@ namespace Cheerful
                 }
                 else if (item.PropertyType == typeof(int))
                 {
-                    item.SetValue(@object, Random.Shared.Next());
+                    var s = Random.Shared.Next();
+                    item.SetValue(@object, s);
                 }
                 else if (item.PropertyType == typeof(long))
                 {
@@ -104,6 +105,18 @@ namespace Cheerful
                 {
                     item.SetValue(@object, Random.Shared.NextUShort());
                 }
+                else if (item.PropertyType.IsEnum)
+                {
+                    var fields = item.PropertyType.GetFields(BindingFlags.Public | BindingFlags.Static);
+                    var enumValue = Enum.Parse(item.PropertyType, fields[Random.Shared.Next(fields.Length)].Name);
+                    item.SetValue(@object, enumValue);
+                }
+                //if (item.PropertyType.IsGenericType && item.PropertyType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)) && item.PropertyType.GetGenericArguments()[0].IsEnum)
+                //{
+                //    var fields = item.PropertyType.GetGenericArguments()[0].GetFields(BindingFlags.Public | BindingFlags.Static);
+                //    var enumValue = Enum.Parse(item.PropertyType.GetGenericArguments()[0], fields[Random.Shared.Next(fields.Length)].Name);
+                //    item.SetValue(@object, enumValue);
+                //}
                 else
                 {
                     // typeof(nint) typeof(nuint) IsArray IsSubclassOf(typeof(Delegate))
