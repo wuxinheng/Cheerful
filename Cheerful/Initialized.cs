@@ -111,12 +111,20 @@ namespace Cheerful
                     var enumValue = Enum.Parse(item.PropertyType, fields[Random.Shared.Next(fields.Length)].Name);
                     item.SetValue(@object, enumValue);
                 }
-                //if (item.PropertyType.IsGenericType && item.PropertyType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)) && item.PropertyType.GetGenericArguments()[0].IsEnum)
-                //{
-                //    var fields = item.PropertyType.GetGenericArguments()[0].GetFields(BindingFlags.Public | BindingFlags.Static);
-                //    var enumValue = Enum.Parse(item.PropertyType.GetGenericArguments()[0], fields[Random.Shared.Next(fields.Length)].Name);
-                //    item.SetValue(@object, enumValue);
-                //}
+                if (item.PropertyType.IsGenericType)
+                {
+                    if (item.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
+                    {
+                        if (item.PropertyType.GetGenericArguments().Length == 1)
+                        {
+                            //item.SetValue(@object, enumValue);
+                        }
+                    }
+                    else
+                    {
+                        item.SetValue(@object, default);
+                    }
+                }
                 else
                 {
                     // typeof(nint) typeof(nuint) IsArray IsSubclassOf(typeof(Delegate))
