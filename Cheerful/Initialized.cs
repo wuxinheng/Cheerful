@@ -71,7 +71,8 @@ namespace Cheerful
                 return result;
             }
 
-            switch (Type.GetTypeCode(@type))
+            var typeCode = Type.GetTypeCode(@type);
+            switch (typeCode)
             {
                 case TypeCode.Empty:
                     break;

@@ -283,7 +283,7 @@ namespace Cheerful.Test
         /// <summary>
         /// 删除
         /// </summary>
-        public bool IsDeleted { get; set; } = false;
+        public bool IsDeleted { get; set; }
 
         /// <summary>
         /// 序号
