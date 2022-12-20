@@ -150,9 +150,6 @@ namespace Cheerful
                 case TypeCode.String:
                     result = Random.Shared.NextString();
                     break;
-
-                default:
-                    break;
             }
 
             return result;

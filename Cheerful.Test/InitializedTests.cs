@@ -47,14 +47,14 @@ namespace Cheerful.Test
             Assert.IsNotNull(reuslt);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void InitEnumTest()
         {
             var reuslt = Initialized.InitEnum(typeof(HelpTestClass.Days));
             Assert.IsNotNull(reuslt);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void InitSystemBaseTypeTest()
         {
             var reuslt = Initialized.InitSystemBaseType(typeof(HelpTestClass.Days));
