@@ -153,6 +153,7 @@ namespace Cheerful
                     break;
 
                 default:
+                    result = null;
                     break;
             }
 
