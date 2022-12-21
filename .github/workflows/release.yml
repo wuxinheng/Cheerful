@@ -27,4 +27,6 @@ jobs:
           cd Cheerful
           dotnet pack Cheerful.csproj /p:PackageVersion=$VERSION /p:ContinuousIntegrationBuild=true -c Release -o publish
           NUGET_API_KEY=${{ secrets.NUGET_API_KEY }}
+          echo "NUGET_API_KEY: ${NUGET_API_KEY}"
+          echo "NUGET_API_KEY: ${secrets.NUGET_API_KEY}"
           dotnet nuget push 'publish/*.nupkg' -s https://api.nuget.org/v3/index.json -k NUGET_API_KEY --skip-duplicate
