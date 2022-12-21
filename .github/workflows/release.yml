@@ -17,9 +17,11 @@ jobs:
       - name: Build
         run: |
           dotnet build
-      - name: push & Nuget
+      - name: debug
         run: |
-          echo ${{ steps.get_version.outputs.VERSION }}
-          echo ${{ github.ref }}
+          echo "${{ steps.get_version.outputs.VERSION }}"
+          echo "${{ github.ref }}"
+
+#      - name: push & Nuget
 
 #dotnet nuget push Cheerful.1.0.0.nupkg --api-key ${{ secrets.NUGET_API_KEY }}
