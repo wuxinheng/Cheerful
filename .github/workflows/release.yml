@@ -19,8 +19,8 @@ jobs:
           dotnet build
       - name: debug
         run: |
-          echo "${{ steps.get_version.outputs.VERSION }}"
-          echo "${{ github.ref }}"
+          VERSION=`git describe --tags`
+          echo "Publishing Version: ${VERSION}"
 
 #      - name: push & Nuget
 
