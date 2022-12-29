@@ -1,6 +1,4 @@
-﻿using Cheerful.PipeLine;
-
-namespace Cheerful.Test
+﻿namespace Cheerful.Test.PipeLine
 {
     [TestClass]
     public class PipeLineTests

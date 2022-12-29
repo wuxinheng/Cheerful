@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 
 namespace Cheerful
 {
@@ -22,7 +21,8 @@ namespace Cheerful
         /// <returns></returns>
         public virtual byte NextByte()
         {
-            return Convert.ToByte(Shared.Next(0, 255));
+            
+            return Convert.ToByte(Shared.Next(byte.MinValue, byte.MaxValue));
         }
 
         /// <summary>
@@ -75,14 +75,28 @@ namespace Cheerful
         /// <summary>
         /// 获取随机float
         /// </summary>
-        /// <param name="minValue">最小值</param>
-        /// <param name="maxValue">最大值</param>
+        /// <param name="min">最小值</param>
+        /// <param name="max">最大值</param>
         /// <returns></returns>
-        public virtual float NextFloat(float minValue, float maxValue)
+        public virtual float NextFloat(float min, float max)
         {
-            return Shared.Next() * (maxValue - minValue) + minValue;
+            return Shared.Next() * (max - min) + min;
         }
 
+        /// <summary>
+        /// 获取随机float
+        /// </summary>
+        /// <param name="min">最小值</param>
+        /// <param name="max">最大值</param>
+        /// <returns></returns>
+        public virtual double NextDouble(int min, int max)
+        {
+            int _min = int.MinValue; int _max = int.MaxValue;
+            _min = min < _min ? _min : min;
+            _max = _max < max ? _max : max;
+
+            return Shared.Next(_min, _max) + Shared.NextDouble();
+        }
         /// <summary>
         /// 获取随机大写字母
         /// </summary>
@@ -124,7 +138,7 @@ namespace Cheerful
         /// <returns></returns>
         public virtual sbyte NextSbyte()
         {
-            return Convert.ToSByte(Shared.Next(-128, 127));
+            return Convert.ToSByte(Shared.Next(sbyte.MinValue, sbyte.MaxValue));
         }
 
         /// <summary>
@@ -133,7 +147,16 @@ namespace Cheerful
         /// <returns></returns>
         public virtual short NextShort()
         {
-            return Convert.ToInt16(Shared.Next(-32768, 32767));
+            return Convert.ToInt16(Shared.Next(short.MinValue, short.MaxValue));
+        }
+
+
+        public virtual short NextShort(int min, int max)
+        {
+            int _min = short.MinValue; int _max = short.MaxValue;
+            _min = min < _min ? _min : min;
+            _max = _max < max ? _max : max;
+            return Convert.ToInt16(Shared.Next(_min, _max));
         }
 
         /// <summary>
@@ -208,12 +231,36 @@ namespace Cheerful
         }
 
         /// <summary>
+        /// 获取随机uint
+        /// </summary>
+        /// <returns></returns>
+        public virtual uint NextUInt(int min, int max)
+        {
+            int _min = int.MinValue; int _max = int.MaxValue;
+            _min = min < _min ? _min : min;
+            _max = _max < max ? _max : max;
+            return Convert.ToUInt32(Shared.Next(_min, _max));
+        }
+
+        /// <summary>
         /// 获取随机ulong
         /// </summary>
         /// <returns></returns>
         public virtual ulong NextULong()
         {
             return Convert.ToUInt64(Shared.NextByte());
+        }
+
+        /// <summary>
+        /// 获取随机ulong
+        /// </summary>
+        /// <returns></returns>
+        public virtual ulong NextULong(int min, int max)
+        {
+            int _min = int.MinValue; int _max = int.MaxValue;
+            _min = min < _min ? _min : min;
+            _max = _max < max ? _max : max;
+            return Convert.ToUInt64(Shared.Next(_min, _max));
         }
 
         /// <summary>
@@ -225,6 +272,16 @@ namespace Cheerful
             return Convert.ToUInt16(Shared.NextByte());
         }
 
-
+        /// <summary>
+        /// 获取随机ushort
+        /// </summary>
+        /// <returns></returns>
+        public virtual ushort NextUShort(int min, int max)
+        {
+            int _min = ushort.MinValue; int _max = ushort.MaxValue;
+            _min = min < _min ? _min : min;
+            _max = _max < max ? _max : max;
+            return Convert.ToUInt16(Shared.Next(_min, _max));
+        }
     }
 }

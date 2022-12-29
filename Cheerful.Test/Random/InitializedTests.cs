@@ -1,16 +1,30 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Cheerful;
-
-namespace Cheerful.Test
+﻿namespace Cheerful.Test.Random
 {
     [TestClass]
     public class InitializedTests
     {
+
+        [TestMethod]
+        public void InitRandomConfigurationAttributeTest()
+        {
+            var reuslt = Initialized.Init<InspectionTaskDetail>();
+            Assert.IsNotNull(reuslt);
+        }
+
         [TestMethod]
         public void InitCollectionTest()
         {
             var reuslt = Initialized.InitCollection<HelpTestClass.TestClass1>(100000);
             Assert.IsTrue(reuslt.Any());
+        }
+
+
+        [TestMethod]
+        public void SetPropertyInfoTest()
+        {
+            InspectionTaskDetail inspectionTaskDetail = new InspectionTaskDetail();
+            Initialized.SetPropertyInfo(inspectionTaskDetail, typeof(InspectionTaskDetail).GetProperties());
+            Assert.IsNotNull(inspectionTaskDetail);
         }
 
         [TestMethod]
@@ -33,12 +47,6 @@ namespace Cheerful.Test
             Assert.IsTrue(reuslt.Ushort != default);
         }
 
-        [TestMethod]
-        public void InitTestByInspectionTaskDetail()
-        {
-            var reuslt = Initialized.Init<InspectionTaskDetail>();
-            Assert.IsNotNull(reuslt);
-        }
 
         [TestMethod]
         public void InitTestByTestClass2()
@@ -239,7 +247,7 @@ namespace Cheerful.Test
         /// <summary>
         /// 实际巡检人姓名
         /// </summary>
-        public string? ActUserName { get; set; }
+        [RandomConfiguration(BuildType.Name)] public string? ActUserName { get; set; }
 
         /// <summary>
         /// 巡检编码
@@ -288,7 +296,7 @@ namespace Cheerful.Test
         /// <summary>
         /// 序号
         /// </summary>
-        public int Order { get; set; }
+        [RandomConfiguration(10, 20)] public int Order { get; set; }
 
         /// <summary>
         /// 计划结束时间
@@ -308,14 +316,14 @@ namespace Cheerful.Test
         /// <summary>
         /// 点位名称
         /// </summary>
-        public string? PointName { get; set; }
+        [RandomConfiguration(BuildType.EMail)] public string? PointName { get; set; }
 
         /// <summary>
         /// 项目Id
         /// </summary>
         public int? ProjectId { get; set; }
 
-        public string? Remark { get; set; }
+        [RandomConfiguration(5)] public string? Remark { get; set; }
 
         /// <summary>
         /// 工单编号
