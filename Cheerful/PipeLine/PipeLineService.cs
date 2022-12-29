@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Cheerful.PipeLine
+﻿namespace Cheerful
 {
     /// <summary>
     /// 管线阀门基础实现

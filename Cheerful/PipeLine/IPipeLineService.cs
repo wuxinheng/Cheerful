@@ -1,4 +1,4 @@
-﻿namespace Cheerful.PipeLine
+﻿namespace Cheerful
 {
     /// <summary>
     /// 管线阀门接口

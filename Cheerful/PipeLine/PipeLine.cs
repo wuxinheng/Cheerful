@@ -1,4 +1,4 @@
-﻿namespace Cheerful.PipeLine
+﻿namespace Cheerful
 {
     /// <summary>
     /// 管线实现

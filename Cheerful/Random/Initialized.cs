@@ -47,7 +47,7 @@ namespace Cheerful
         /// <exception cref="ArgumentException">类型不匹配</exception>
         public static dynamic? InitEnum(Type? @type)
         {
-            dynamic? reuslt=null;
+            dynamic? reuslt = null;
             if (type!.IsEnum)
             {
                 var fields = type.GetFields(BindingFlags.Public | BindingFlags.Static);
@@ -165,11 +165,20 @@ namespace Cheerful
         /// </summary>
         /// <param name="object">对象</param>
         /// <param name="propertyInfos">属性集合</param>
-        private static void SetPropertyInfo(object @object, PropertyInfo[] propertyInfos)
+        public static void SetPropertyInfo(object @object, PropertyInfo[] propertyInfos)
         {
             foreach (var item in propertyInfos)
             {
-                var value = InitSystemBaseType(item.PropertyType);
+                dynamic? value;
+                if (item.GetCustomAttribute(typeof(RandomConfigurationAttribute),true) is RandomConfigurationAttribute randomConfiguration)
+                {
+                    value = randomConfiguration.ToRandom(item.PropertyType);
+                }
+                else
+                {
+                    value = InitSystemBaseType(item.PropertyType);
+                }
+
                 item.SetValue(@object, value);
             }
         }
