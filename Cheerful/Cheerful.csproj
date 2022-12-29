@@ -4,6 +4,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Authors>wuxinheng</Authors>
+    <Company>wuxinheng</Company>
+    <PackageProjectUrl>https://github.com/wuxinheng/Cheerful</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/wuxinheng/Cheerful</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>library</PackageTags>
+    <Copyright>©wuxinheng</Copyright>
   </PropertyGroup>
 
 </Project>
