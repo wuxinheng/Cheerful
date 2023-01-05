@@ -10,7 +10,21 @@
     <RepositoryUrl>https://github.com/wuxinheng/Cheerful</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>library</PackageTags>
-    <Copyright>©wuxinheng</Copyright>
+    <Copyright>Cheerful © wuxinheng 2022</Copyright>
+    <Description>Accumulated basic code in their own work, to avoid repeated wheel building.</Description>
+    <PackageIcon>cheerful.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="wwwroot\cheerful.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\cheerful.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
 </Project>
