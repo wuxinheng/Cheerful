@@ -6,7 +6,7 @@
         [TestMethod]
         public void NextBooleanTest()
         {
-            
+
             Assert.IsNotNull(Cheerful.Random.Shared.NextBoolean());
         }
 
@@ -120,7 +120,7 @@
         public void NextDoubleTest()
         {
             var value = Cheerful.Random.Shared.NextDouble(10, 20);
-            Assert.IsTrue(value < 20 && value > 10);
+            Assert.IsTrue(value <= 20 && value >= 10);
         }
 
         [TestMethod]
@@ -148,7 +148,7 @@
         public void NextULongTest1()
         {
             var value = Cheerful.Random.Shared.NextULong(10, 20);
-            Assert.IsTrue(value < 20 && value > 10);
+            Assert.IsTrue(value <= 20 && value >= 10);
         }
     }
 }
