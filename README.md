@@ -4,11 +4,54 @@
 
 
 
-## 📦 安装使用
+## 📦 安装
 
 - 从 Nuget 直接安装
 ```bash
-> dotnet add package Cheerful --version xxx
+dotnet add package Cheerful --version xxx
+```
+
+## 🌈用法
+
+```C#
+public class TestContext
+{
+    public TestContext(int a, int r)
+    {
+        A = a;
+        R = r;
+    }
+
+    public int A { get; set; }
+    public int R { get; set; }
+}
+public class TestPipeLineService1 : PipeLineService<TestContext>
+{
+    public override void Invoke(TestContext t)
+    {
+        t.A++;
+        NextService?.Invoke(t);
+        t.R--;
+    }
+}
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        var context = new TestContext(0, 10);
+        var pipeLine = new PipeLine<TestContext>();
+        pipeLine.Add<TestPipeLineService1>();
+        pipeLine.Add<TestPipeLineService1>();
+        pipeLine.Add<TestPipeLineService1>();
+        pipeLine.Add<TestPipeLineService1>();
+        pipeLine.Add<TestPipeLineService1>();
+        pipeLine.Add<TestPipeLineService1>();
+        pipeLine.Invoke(context);
+        Console.WriteLine(context.A); // 6
+        Console.WriteLine(context.R); //4
+    }
+}
+
 ```
 
 
