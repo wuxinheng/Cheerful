@@ -27,6 +27,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ISSUE_TEMPLATE", "ISSUE_TEM
 		.github\ISSUE_TEMPLATE\issue-feedback.md = .github\ISSUE_TEMPLATE\issue-feedback.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cheerful.Repository", "Cheerful.Repository\Cheerful.Repository.csproj", "{A9499949-5BA4-4573-B3E2-9F290B771705}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cheerful.RepositoryTests", "Cheerful.RepositoryTests\Cheerful.RepositoryTests.csproj", "{76BBBDCC-38A6-4F1E-B773-6C0E1C57CF6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{6ADFF6BF-B0AC-4E46-889D-41755D5855E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ADFF6BF-B0AC-4E46-889D-41755D5855E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ADFF6BF-B0AC-4E46-889D-41755D5855E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9499949-5BA4-4573-B3E2-9F290B771705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9499949-5BA4-4573-B3E2-9F290B771705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9499949-5BA4-4573-B3E2-9F290B771705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9499949-5BA4-4573-B3E2-9F290B771705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76BBBDCC-38A6-4F1E-B773-6C0E1C57CF6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76BBBDCC-38A6-4F1E-B773-6C0E1C57CF6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76BBBDCC-38A6-4F1E-B773-6C0E1C57CF6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76BBBDCC-38A6-4F1E-B773-6C0E1C57CF6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
