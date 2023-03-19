@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace Cheerful.Repository
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class ObjectCodeAttribute : Attribute
+    public class BuildCodeAttribute : Attribute
     {
-        public ObjectCodeAttribute() { }
-        public ObjectCodeAttribute(string postfix = "", int sequenceLength = 0, string prefix = "")
+        public BuildCodeAttribute() { }
+        public BuildCodeAttribute(string postfix = "", int sequenceLength = 0, string prefix = "")
         {
             Postfix = postfix;
             Prefix = prefix;

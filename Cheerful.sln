@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cheerful", "Cheerful\Cheerful.csproj", "{9EC95334-89C2-41DC-8C91-6CE20AD6BB44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cheerful", "Src\Cheerful\Cheerful.csproj", "{9EC95334-89C2-41DC-8C91-6CE20AD6BB44}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cheerful.Test", "Cheerful.Test\Cheerful.Test.csproj", "{6ADFF6BF-B0AC-4E46-889D-41755D5855E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cheerful.Test", "Test\Cheerful.Test\Cheerful.Test.csproj", "{6ADFF6BF-B0AC-4E46-889D-41755D5855E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{21ED279E-9EF7-491E-AD65-F40A6DE23550}"
 	ProjectSection(SolutionItems) = preProject
@@ -27,9 +27,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ISSUE_TEMPLATE", "ISSUE_TEM
 		.github\ISSUE_TEMPLATE\issue-feedback.md = .github\ISSUE_TEMPLATE\issue-feedback.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cheerful.Repository", "Cheerful.Repository\Cheerful.Repository.csproj", "{A9499949-5BA4-4573-B3E2-9F290B771705}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cheerful.Repository", "Src\Cheerful.Repository\Cheerful.Repository.csproj", "{A9499949-5BA4-4573-B3E2-9F290B771705}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cheerful.RepositoryTests", "Cheerful.RepositoryTests\Cheerful.RepositoryTests.csproj", "{76BBBDCC-38A6-4F1E-B773-6C0E1C57CF6D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{96F292A1-B66F-4F93-B935-46F47DEEBCC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{53653982-01B9-4FEF-B992-E04367FBA67C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,17 +51,16 @@ Global
 		{A9499949-5BA4-4573-B3E2-9F290B771705}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9499949-5BA4-4573-B3E2-9F290B771705}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9499949-5BA4-4573-B3E2-9F290B771705}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76BBBDCC-38A6-4F1E-B773-6C0E1C57CF6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76BBBDCC-38A6-4F1E-B773-6C0E1C57CF6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76BBBDCC-38A6-4F1E-B773-6C0E1C57CF6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76BBBDCC-38A6-4F1E-B773-6C0E1C57CF6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{9EC95334-89C2-41DC-8C91-6CE20AD6BB44} = {53653982-01B9-4FEF-B992-E04367FBA67C}
+		{6ADFF6BF-B0AC-4E46-889D-41755D5855E6} = {96F292A1-B66F-4F93-B935-46F47DEEBCC2}
 		{BE39BEB1-08A4-4B6F-AB0F-D48C8960905E} = {21ED279E-9EF7-491E-AD65-F40A6DE23550}
 		{88B8C605-E394-4FAE-A6DA-851164CC0E83} = {21ED279E-9EF7-491E-AD65-F40A6DE23550}
+		{A9499949-5BA4-4573-B3E2-9F290B771705} = {53653982-01B9-4FEF-B992-E04367FBA67C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A902835-89B7-43BE-BC75-E1E7FF7EECB2}
