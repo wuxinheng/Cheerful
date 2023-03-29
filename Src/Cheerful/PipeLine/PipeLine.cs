@@ -12,7 +12,7 @@
         {
             var instance = Activator.CreateInstance(typeof(TPipeLineService)) as IPipeLineService<TContext>;
 
-            if (Service == null)
+            if (Service is null)
             {
                 Service = instance;
             }
@@ -29,7 +29,7 @@
 
         public void SetNextService(IPipeLineService<TContext>? service, IPipeLineService<TContext>? nextService)
         {
-            if (service?.NextService == null)
+            if (service?.NextService is null)
             {
                 service!.NextService = nextService;
             }
