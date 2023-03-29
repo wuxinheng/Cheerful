@@ -10,12 +10,7 @@ namespace Cheerful.Repository
     public class BuildCodeAttribute : Attribute
     {
         public BuildCodeAttribute() { }
-        public BuildCodeAttribute(string postfix = "", int sequenceLength = 0, string prefix = "")
-        {
-            Postfix = postfix;
-            Prefix = prefix;
-            SequenceLength = sequenceLength;
-        }
+
 
         /// <summary>
         /// 前缀

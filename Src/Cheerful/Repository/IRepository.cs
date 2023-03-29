@@ -1,22 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Cheerful.Repository
+﻿namespace Cheerful.Repository
 {
     public interface IRepository<T> where T : class
     {
         /// <summary>
-        /// 获取一个新的业务代码
+        /// 获取一个新的编号
         /// </summary>
         /// <typeparam name="TEntity">实体</typeparam>
         /// <returns></returns>
-        Task<string> NewBusinessCode();
+        Task<string> NewNo();
 
         /// <summary>
         /// 查询分页数据

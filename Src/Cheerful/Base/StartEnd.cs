@@ -14,7 +14,7 @@ namespace Cheerful
             Start=start;
             End=end;
         }
-        public T Start { get; set; }
-        public T End { get; set; }
+        public T? Start { get; set; }
+        public T? End { get; set; }
     }
 }
