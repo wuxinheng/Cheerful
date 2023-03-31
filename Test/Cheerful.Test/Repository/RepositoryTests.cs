@@ -1,15 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Cheerful.Repository;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moq;
-using System.Net.Security;
-using Cheerful.Repository.Entitys;
-using Microsoft.EntityFrameworkCore;
+﻿using Cheerful.Repository.Entitys;
 
 namespace Cheerful.Repository.Tests
 {
@@ -36,11 +25,11 @@ namespace Cheerful.Repository.Tests
         }
 
         [TestMethod()]
-        public void NewNoTest()
+        public async Task NewNoTest()
         {
             CheerfulContext context = new CheerfulContext();
             var repository = new Cheerful.Repository.Repository<User>(context);
-            var newNo = repository.NewNo().GetAwaiter().GetResult();
+            var newNo = await repository.NewNo();
             var user1 = new User()
             {
                 Name = "测试姓名1",
@@ -48,16 +37,16 @@ namespace Cheerful.Repository.Tests
             };
             repository.Add(user1);
             repository.SaveChanges();
-            newNo = repository.NewNo().GetAwaiter().GetResult();
+            newNo = await repository.NewNo();
             var user2 = new User()
             {
                 Name = "测试姓名2",
                 No = newNo
             };
-            
+
             repository.Add(user2);
             repository.SaveChanges();
-            Assert.IsTrue(user1.No== user2.No);
+            Assert.IsFalse(user1.No == user2.No);
         }
 
         [TestMethod()]

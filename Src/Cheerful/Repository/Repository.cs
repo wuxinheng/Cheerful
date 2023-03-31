@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 using System.Reflection;
 using System.Text;
@@ -15,71 +16,86 @@ namespace Cheerful.Repository
             _dbContext = dbContext;
         }
 
-        public virtual void Add(T t)
+        public virtual void Add(T t) => _dbContext.Add(t);
+
+        public virtual void AddRange(List<T> ts) => _dbContext.AddRange(ts);
+
+        public virtual int Modify(T t, params string[] propertyNames)
         {
-            _dbContext.Add(t);
+            var entry = _dbContext.Entry<T>(t);
+            entry.State = EntityState.Unchanged;
+            foreach (string proName in propertyNames)
+            {
+                entry.Property(proName).IsModified = true;
+            }
+            return _dbContext.SaveChanges();
+
         }
-        public virtual int SaveChanges() => _dbContext.SaveChanges();
-        public virtual Task<int> SaveChangesAsync() => _dbContext.SaveChangesAsync();
+
+        public virtual int Modifys(List<T> ts, params string[] propertyNames)
+        {
+            foreach (var item in ts)
+            {
+                var entry = _dbContext.Entry<T>(item);
+                entry.State = EntityState.Unchanged;
+                foreach (string proName in propertyNames)
+                {
+                    entry.Property(proName).IsModified = true;
+                }
+            }
+            return _dbContext.SaveChanges();
+        }
 
         public virtual async Task<string> NewNo()
         {
-            var property = typeof(T).GetProperties().Where(x => x.GetCustomAttribute(typeof(BuildCodeAttribute), true) is BuildCodeAttribute).FirstOrDefault();
-            if (property is null)
-            {
-                throw new ArgumentNullException("实体中找不到使用ObjectCodeAttribute的属性");
-            }
+            var property = typeof(T).GetProperties()
+                .FirstOrDefault(x => x.GetCustomAttribute<BuildCodeAttribute>() != null) ?? throw new NullReferenceException();
 
-            var objectCode = property?.GetCustomAttribute(typeof(BuildCodeAttribute), true) as BuildCodeAttribute;
-            if (objectCode is null)
-            {
-                throw new ArgumentNullException("ObjectCodeAttribute 转换错误");
-            }
+            var objectCode = (property?.GetCustomAttribute<BuildCodeAttribute>()) ?? throw new NullReferenceException();
 
+            var recentlyCode = await _dbContext.Set<T>()
+                .Where(x => EF.Property<string>(x, property.Name) != null)
+                .OrderByDescending(x => EF.Property<string>(x, property.Name))
+                .Select(x => EF.Property<string>(x, property.Name))
+                .FirstOrDefaultAsync();
+
+            var sb = new StringBuilder(recentlyCode);
 
             var dateString = DateTime.Now.ToString("yyyyMMdd");
             int sequence = 0;
-            var recentlyCode = await _dbContext.Set<T>()
-                .Where(x => EF.Property<string>(x, property!.Name) != null)
-                .OrderByDescending(x => EF.Property<string>(x, property!.Name))
-                .Select(x => EF.Property<string>(x, property!.Name))
-                .FirstOrDefaultAsync();
-            var sb=new StringBuilder(recentlyCode);
+
             if (!string.IsNullOrWhiteSpace(recentlyCode))
             {
-                sb.Replace(objectCode!.Prefix,"");
-                sb.Replace(objectCode!.Postfix,"");
-
-                sequence = int.Parse(recentlyCode.PadLeft(objectCode.SequenceLength)) + 1;
+                sb.Replace(objectCode.Prefix ?? "", "");
+                sb.Replace(objectCode.Postfix ?? "", "");
+                sequence = int.Parse(sb.ToString()[(sb.Length - objectCode.SequenceLength)..]) + 1;
             }
 
             return $"{objectCode.Prefix}{dateString}{sequence.ToString().PadLeft(objectCode.SequenceLength, '0')}{objectCode.Postfix}";
-
-
         }
 
-        //public Task<Page<TResult>> Page<TResult>(int index, int size, Func<IQueryable<T>, IQueryable<TResult>> func)
-        //{
-        //    using DbContext db = new T();
-        //    var values = db.Set<T>().AsNoTracking();
-        //    var data = func.Invoke(values);
-
-        //    Page<TResult> page = new()
-        //    {
-        //        Data = data.Take(index).Skip(size).ToList(),
-        //        Index = index,
-        //        Total = data.Count(),
-        //        TotalPgae = data.Count() / size
-        //    };
-        //    return Task.FromResult(page);
-        //}
-
-        public virtual Task<Page<TResult>> Page<TResult>(Func<int, int, IQueryable<T>, IQueryable<TResult>> func)
+        public virtual Task<Page<TResult>> Page<TResult>(int index, int size, Func<IQueryable<T>, IQueryable<TResult>> func)
         {
-            throw new NotImplementedException();
+            var values = _dbContext.Set<T>().AsNoTracking();
+            var data = func.Invoke(values);
+
+            Page<TResult> page = new()
+            {
+                Data = data.Take(index).Skip(size).ToList(),
+                Index = index,
+                Total = data.Count(),
+                TotalPgae = data.Count() / size
+            };
+            return Task.FromResult(page);
         }
+
+        public virtual void Remove(T t) => _dbContext.Remove(t);
+        public virtual void RemoveRange(List<T> ts) => _dbContext.RemoveRange(ts);
+
+        public virtual int SaveChanges() => _dbContext.SaveChanges();
+
+        public virtual Task<int> SaveChangesAsync() => _dbContext.SaveChangesAsync();
+
+        public virtual IQueryable<T> Set() => _dbContext.Set<T>();
     }
-
-
-
 }
